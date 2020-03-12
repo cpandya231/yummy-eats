@@ -154,31 +154,10 @@
             }
         }
         
-        @media (min-width:930px) {
-            .authentic {
-                display: flex;
-                transform: scaleX(-1);
-                margin-top: -0.6em;
-            }
-            .right-col {
-                transform: rotateY(180deg);
-            }
-            h2 {
-                margin-top: 1em;
-                font-size: 1.2rem;
-            }
-            .authentic p {
-                line-height: 1.4em;
-                font-size: 1.2rem;
-                padding: 1.2em;
-            }
-            .authentic img {
-                height: 100%;
-                width: 50%;
-            }
+        @media (min-width:1023px) {
             .hero-bg {
                 text-align: left;
-                background-position: 15% 20%;
+                background-position: 45% 70%;
             }
             .hero-bg h1 {
                 margin: 1.5em 1.8em 0.6em;
@@ -204,7 +183,7 @@
                 font-size: 0.9rem;
             }
             .form-container input[type="text"] {
-                width: 90%;
+                width: 95%;
                 margin-top: 1.2em;
             }
             .form-container p {
@@ -215,5 +194,44 @@
                 width: 40%;
                 height: 27%;
                 margin-top: 2.3em;
+            }
+            .authentic {
+                display: grid;
+                grid-template-columns: repeat(2, 50%);
+                grid-template-areas: "bowl content";
+                margin-top: -0.6em;
+            }
+            .right-col {
+                grid-area: content;
+                text-align: left;
+                align-self: center;
+                padding: 0 10%;
+            }
+            .authentic img {
+                grid-area: "bowl";
+            }
+            h2 {
+                margin-top: 0.5em;
+                font-size: 1.2rem;
+            }
+            .authentic p {
+                padding-right: 0em;
+                padding-left: 0em;
+                margin: 0em;
+            }
+        }
+        
+        .top {
+            animation: fadeIn 2s forwards;
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-2em);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
             }
         }
