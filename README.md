@@ -1,3 +1,4 @@
+![CI](https://github.com/cpandya231/yummy-eats/workflows/CI/badge.svg?branch=master)
 # YummyEatsApp
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.0.7.
