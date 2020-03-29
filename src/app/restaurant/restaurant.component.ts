@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { RestaurantService } from '../restaurant.service';
 import { restaurant } from './restaurant';
+import { Router } from '@angular/router';
+
+
 
 @Component({
   selector: 'app-restaurant',
@@ -10,7 +13,8 @@ import { restaurant } from './restaurant';
 export class RestaurantComponent implements OnInit {
 
   restaurants:restaurant[];
-  constructor(private restaurantService: RestaurantService) { }
+  constructor(private restaurantService: RestaurantService,
+    private router: Router) { }
 
   ngOnInit(): void {
     this.restaurantService.getRestaurants().subscribe(data => {
@@ -21,6 +25,11 @@ export class RestaurantComponent implements OnInit {
       })
       
     })
+  }
+
+  getRestauranrInfo():void{
+    console.log("Restaurant triggered");
+    this.router.navigate(['restaurant-info']);
   }
 
 }

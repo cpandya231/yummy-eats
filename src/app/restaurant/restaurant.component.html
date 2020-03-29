@@ -6,7 +6,7 @@
 
     <ul>
 
-        <li *ngFor="let restaurant of restaurants">
+        <li *ngFor="let restaurant of restaurants" class="restaurant-list-element" (click)="getRestauranrInfo()">
 
             <img src="assets/images/{{restaurant.Image}}" alt="">
             <div class="restaurant-info">
@@ -16,5 +16,6 @@
 
         </li>
 
+        <router-outlet></router-outlet>
     </ul>
 </div>
