@@ -13,4 +13,8 @@ export class RestaurantService {
   getRestaurants() {
     return this.httpClient.get<restaurant[]>(this.lambdaURL);
   }
+
+  getRestaurantsByCity(city, restaurantId) {
+    return this.httpClient.get<restaurant>(`${this.lambdaURL}?city=${city}&restaurantID=${restaurantId}`);
+  }
 }

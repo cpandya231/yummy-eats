@@ -1,8 +1,8 @@
-<div class="restaurant-info-container">
+<div class="restaurant-info-container" (click)="closeContainer()">
 
     <div class="restaurant-details">
-        <img src="../../assets/images/restaurant-1.jfif" alt="">
-        <h4>Eatsome</h4>
-        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p>
+        <img src="assets/images/{{restaurant.Image}}" alt="">
+        <h4>{{restaurant.Name}}</h4>
+        <p>{{restaurant.Description}}</p>
     </div>
 </div>

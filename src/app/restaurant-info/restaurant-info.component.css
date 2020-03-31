@@ -20,3 +20,7 @@
     width: 100%;
     height: 60%;
 }
+
+.restaurant-details p {
+    font-size: 0.8rem;
+}

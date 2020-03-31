@@ -3,5 +3,6 @@ export interface restaurant {
     City: string;
     Name:string;
     Description:string
-    Image:string
+    Image:string,
+    'Restaurant ID':string
   }

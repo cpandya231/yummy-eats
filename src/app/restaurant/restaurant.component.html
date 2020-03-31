@@ -9,13 +9,13 @@
         <li *ngFor="let restaurant of restaurants" class="restaurant-list-element" (click)="getRestauranrInfo()">
 
             <img src="assets/images/{{restaurant.Image}}" alt="">
-            <div class="restaurant-info">
+            <div class="restaurant-info" id="{{restaurant['Restaurant ID']}}-{{restaurant['City']}}">
                 <h4>{{restaurant.Name}}</h4>
                 <p>{{restaurant.Description}}</p>
             </div>
 
         </li>
-
         <router-outlet></router-outlet>
+
     </ul>
 </div>

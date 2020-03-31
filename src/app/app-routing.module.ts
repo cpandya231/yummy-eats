@@ -6,7 +6,7 @@ import { RestaurantInfoComponent } from './restaurant-info/restaurant-info.compo
 
 
 const routes: Routes = [
-  
+  {component:RestaurantComponent,path:""},
   {component:RestaurantInfoComponent,path:"restaurant-info"}
 
 ];

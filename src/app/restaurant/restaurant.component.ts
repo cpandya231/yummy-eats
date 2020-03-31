@@ -20,16 +20,19 @@ export class RestaurantComponent implements OnInit {
     this.restaurantService.getRestaurants().subscribe(data => {
       // console.log(data);
       this.restaurants=data;
-      this.restaurants.map(data=>{
-        console.log(data.City)
-      })
+     
       
     })
   }
 
   getRestauranrInfo():void{
     console.log("Restaurant triggered");
-    this.router.navigate(['restaurant-info']);
+
+    var target = event.target || event.srcElement || event.currentTarget;
+    var idAttr = target['id'].split("-");
+    
+    // var value = idAttr.nodeValue;
+    this.router.navigateByUrl(`/restaurant-info?city=${idAttr[1]}&restaurantID=${idAttr[0]}`);
   }
 
 }
