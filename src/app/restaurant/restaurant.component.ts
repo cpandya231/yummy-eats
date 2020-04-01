@@ -2,9 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { RestaurantService } from '../restaurant.service';
 import { restaurant } from './restaurant';
 import { Router } from '@angular/router';
-
-
-
 @Component({
   selector: 'app-restaurant',
   templateUrl: './restaurant.component.html',
@@ -12,27 +9,44 @@ import { Router } from '@angular/router';
 })
 export class RestaurantComponent implements OnInit {
 
-  restaurants:restaurant[];
+  restaurants: restaurant[];
+  selectedRestaurant: any;
+  restaurantInfoDisplay: string;
+
+
+
+
   constructor(private restaurantService: RestaurantService,
-    private router: Router) { }
+    private router: Router) { 
+      
+      this.restaurantInfoDisplay = 'restaurant-info-container restaurant-info-container-hide'; 
+    }
 
   ngOnInit(): void {
+    
     this.restaurantService.getRestaurants().subscribe(data => {
       // console.log(data);
-      this.restaurants=data;
-     
-      
+      this.restaurants = data;
+   this.selectedRestaurant=this.restaurants[0];
     })
+
+
+
   }
 
-  getRestauranrInfo():void{
-    console.log("Restaurant triggered");
-
-    var target = event.target || event.srcElement || event.currentTarget;
-    var idAttr = target['id'].split("-");
-    
+  getRestauranrInfo(city, restaurantID): void {
+    var filteredList = this.restaurants.filter((rest) => {
+      return rest.City == city && rest["Restaurant ID"] == restaurantID;
+    })
     // var value = idAttr.nodeValue;
-    this.router.navigateByUrl(`/restaurant-info?city=${idAttr[1]}&restaurantID=${idAttr[0]}`);
+    this.selectedRestaurant = filteredList[0];
+    this.restaurantInfoDisplay = 'restaurant-info-container restaurant-info-container-show';
+
+
+  }
+
+  closeContainer() {
+    this.restaurantInfoDisplay = 'restaurant-info-container restaurant-info-container-hide';
   }
 
 }

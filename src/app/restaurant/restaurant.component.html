@@ -6,16 +6,25 @@
 
     <ul>
 
-        <li *ngFor="let restaurant of restaurants" class="restaurant-list-element" (click)="getRestauranrInfo()">
+        <li *ngFor="let restaurant of restaurants" class="restaurant-list-element" (click)="getRestauranrInfo(restaurant['City'],restaurant['Restaurant ID'])">
 
             <img src="assets/images/{{restaurant.Image}}" alt="">
-            <div class="restaurant-info" id="{{restaurant['Restaurant ID']}}-{{restaurant['City']}}">
+            <div class="restaurant-info">
                 <h4>{{restaurant.Name}}</h4>
                 <p>{{restaurant.Description}}</p>
             </div>
 
         </li>
-        <router-outlet></router-outlet>
+
+
 
     </ul>
+    <div [ngClass]="restaurantInfoDisplay" (click)="closeContainer()">
+
+        <div class="restaurant-details">
+            <img src="assets/images/{{selectedRestaurant.Image}}" alt="">
+            <h4>{{selectedRestaurant.Name}}</h4>
+            <p>{{selectedRestaurant.Description}}</p>
+        </div>
+    </div>
 </div>
